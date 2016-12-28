@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Sieve of Eratosthenes: finds all primes up to a limit
+
 int main()
 {
     vector<int> erat(100000, 1);
