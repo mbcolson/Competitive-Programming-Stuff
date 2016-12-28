@@ -5,14 +5,14 @@ using namespace std;
 
 int main()
 {
-    vector<int> erat(100000, 1);
-    erat[0] = erat[1] = 0;
+    vector<bool> erat(100000, true);
+    erat[0] = erat[1] = false;
     for(int i = 2; i * i < erat.size(); i++)
     {
         if(erat[i])
         {
             for(int j = i * i; j < erat.size(); j += i)
-                erat[j] = 0;
+                erat[j] = false;
         }
     }
     // print the primes in the range (0 - 100)
