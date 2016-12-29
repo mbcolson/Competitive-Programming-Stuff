@@ -4,9 +4,9 @@ using namespace std;
 // Knuth-Morris-Pratt String Searching Algorithm
 // Searches for occurrences of a string (pattern) in text
 
-n = length of text
-m = length of pattern
-b = back table
+// n = length of text
+// m = length of pattern
+// b = back table
 
 #define MAX 500100
 string text, pat;
