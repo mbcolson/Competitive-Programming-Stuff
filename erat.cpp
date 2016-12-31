@@ -5,20 +5,20 @@ using namespace std;
 
 int main()
 {
-    vector<bool> erat(100000, true);
-    erat[0] = erat[1] = false;
-    for(int i = 2; i * i < erat.size(); i++)
+    vector<bool> prime(100000, true);
+    prime[0] = prime[1] = false;
+    for(int i = 2; i * i < prime.size(); i++)
     {
-        if(erat[i])
+        if(prime[i])
         {
-            for(int j = i * i; j < erat.size(); j += i)
-                erat[j] = false;
+            for(int j = i * i; j < prime.size(); j += i)
+                prime[j] = false;
         }
     }
     // print the primes in the range (0 - 100)
     for(int i = 0; i <= 100; i++)
     {
-        if(erat[i])
+        if(prime[i])
             cout << i << endl;
     }    
     return 0;
