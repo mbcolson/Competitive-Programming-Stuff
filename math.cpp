@@ -29,3 +29,10 @@ long long modpower(long long n, long long b, long long m)
     }    
     return res;
 } 
+
+// Returns the modular inverse of n mod m
+// Precondition: m is a prime number
+long long modinv(long long n, long long m)
+{
+    return modpower(n, m - 2, m);
+}
