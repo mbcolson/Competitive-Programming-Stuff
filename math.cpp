@@ -37,7 +37,7 @@ long long modinv(long long n, long long m)
     return modpower(n, m - 2, m);
 }
 
-// Euler's totient function "phi"
+// Euler's Totient function "phi"
 // Returns the number of positive integers up to n that are relatively prime to n
 long long phi(long long n)
 {
