@@ -33,6 +33,7 @@ ll modpower(ll n, ll b, ll m)
 } 
 
 // Returns the modular inverse of n mod m
+// a * a^-1 ≡ 1 (mod m)
 // Precondition: m is a prime number
 ll modinv(ll n, ll m)
 {
@@ -58,6 +59,14 @@ ll phi(ll n)
     return res;
 }
 
+// Returns the modular inverse of a mod m
+// a * a^-1 ≡ 1 (mod m)
+// Precondition: a and m are relatively prime
+ll modinv2(ll a, ll m)
+{
+    return modpower(a, phi(m) - 1, m);
+}
+
 // Extended Euclidean Algorithm
 // Solves Bezout's identity: a*x + b*y = gcd(a,b)
 // All solutions are of the form x + ((k * b) / gcd(a, b)), y - ((k * a) / gcd(a, b)) for some integer k
@@ -75,3 +84,13 @@ void extgcd(ll a, ll b, ll &gcd, ll &x, ll &y)
         y -= (a / b) * x;
     }
 } 
+
+// Returns the modular inverse of a mod m
+// a * a^-1 ≡ 1 (mod m)
+// Precondition: a and m are relatively prime
+ll modinv3(ll a, ll m)
+{
+    ll x, y, gcd;
+    extgcd(a, m, gcd, x, y);
+    return ((x % m) + m) % m;
+}
