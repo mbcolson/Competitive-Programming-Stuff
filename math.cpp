@@ -1,14 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+typedef long long ll;
+
 // Returns true if n is prime and false otherwise
-bool is_prime(long long n)
+bool is_prime(ll n)
 {
     if(n <= 1)
         return false;
     if(n <= 3)
         return true;
-    for(long long i = 2; i * i <= n; i++)
+    for(ll i = 2; i * i <= n; i++)
     {
         if(n % i == 0)
             return false;
@@ -17,9 +19,9 @@ bool is_prime(long long n)
 }    
 
 // Returns n to the power b mod m (n^b mod m)
-long long modpower(long long n, long long b, long long m)
+ll modpower(ll n, ll b, ll m)
 {
-    long long res = 1;
+    ll res = 1;
     n = n % m;
     for(; b > 0; b = b >> 1)
     {
@@ -32,16 +34,16 @@ long long modpower(long long n, long long b, long long m)
 
 // Returns the modular inverse of n mod m
 // Precondition: m is a prime number
-long long modinv(long long n, long long m)
+ll modinv(ll n, ll m)
 {
     return modpower(n, m - 2, m);
 }
 
 // Euler's Totient function "phi"
 // Returns the number of positive integers up to n that are relatively prime to n
-long long phi(long long n)
+ll phi(ll n)
 {
-    long long res = n, i;
+    ll res = n, i;
     for(i = 2; i * i <= n; i++)
     {
         if(n % i == 0)
@@ -55,3 +57,21 @@ long long phi(long long n)
        res -= res / n;
     return res;
 }
+
+// Extended Euclidean Algorithm
+// Solves Bezout's identity: a*x + b*y = gcd(a,b)
+// All solutions are of the form x + ((k * b) / gcd(a, b)), y - ((k * a) / gcd(a, b)) for some integer k
+void extgcd(ll a, ll b, ll &gcd, ll &x, ll &y)
+{
+    if(b == 0)
+    {
+        x = 1;
+        y = 0;
+        gcd = a;
+    } 
+    else
+    {    
+        extgcd(b, a % b, gcd, y, x);
+        y -= (a / b) * x;
+    }
+} 
