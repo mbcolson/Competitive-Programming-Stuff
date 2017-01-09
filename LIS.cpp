@@ -1,20 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// This function finds the length of the longest increasing subsequence (LIS) in vector a.
+// This function returns the length of the longest increasing subsequence (LIS) found in sequence 'a'.
 // It runs in O(n log k) time where n is the length of the sequence and k is the length of the LIS.
 int findLISLen(vector<int> a)
 {
-    vector<int> v;
+    vector<int> LIS;
     for(int i = 0; i < a.size(); i++)
     {
-        int pos = lower_bound(v.begin(), v.end(), a[i]) - v.begin();
-        if(pos == v.size())
-            v.push_back(a[i]);
+        int pos = lower_bound(LIS.begin(), LIS.end(), a[i]) - LIS.begin();
+        if(pos == LIS.size())
+            LIS.push_back(a[i]);
         else
-            v[pos] = a[i];
+            LIS[pos] = a[i];
     }    
-    return v.size();
+    return LIS.size();
 }
 
 int main() 
