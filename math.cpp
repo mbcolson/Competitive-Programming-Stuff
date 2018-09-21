@@ -18,6 +18,24 @@ bool is_prime(ll n)
     return true;
 }    
 
+// Returns a vector of the prime factors of n
+vector<ll> getPrimeFactors(ll n)
+{
+    vector<ll> primeFactors;
+    for(ll i = 2; i <= n; i++)
+    {
+        if(is_prime(i))
+        {
+            while(n % i == 0)
+            {  
+                primeFactors.push_back(i);
+                n = n / i;
+            }
+        }
+    }    
+    return primeFactors;
+}
+
 // Returns n to the power b mod m (n^b mod m)
 ll modpower(ll n, ll b, ll m)
 {
