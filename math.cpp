@@ -4,7 +4,7 @@ using namespace std;
 typedef long long ll;
 
 // Returns true if n is prime and false otherwise
-bool is_prime(ll n)
+bool isPrime(ll n)
 {
     if(n <= 1)
         return false;
@@ -24,7 +24,7 @@ vector<ll> getPrimeFactors(ll n)
     vector<ll> primeFactors;
     for(ll i = 2; i <= n; i++)
     {
-        if(is_prime(i))
+        if(isPrime(i))
         {
             while(n % i == 0)
             {  
@@ -37,7 +37,7 @@ vector<ll> getPrimeFactors(ll n)
 }
 
 // Returns n to the power b mod m (n^b mod m)
-ll modpower(ll n, ll b, ll m)
+ll modPower(ll n, ll b, ll m)
 {
     ll res = 1;
     n = n % m;
@@ -53,9 +53,9 @@ ll modpower(ll n, ll b, ll m)
 // Returns the modular inverse of n mod m
 // a * a^-1 ≡ 1 (mod m)
 // Precondition: m is a prime number
-ll modinv(ll n, ll m)
+ll modInv(ll n, ll m)
 {
-    return modpower(n, m - 2, m);
+    return modPower(n, m - 2, m);
 }
 
 // Euler's Totient function "phi"
@@ -80,9 +80,9 @@ ll phi(ll n)
 // Returns the modular inverse of a mod m
 // a * a^-1 ≡ 1 (mod m)
 // Precondition: a and m are relatively prime
-ll modinv2(ll a, ll m)
+ll modInv2(ll a, ll m)
 {
-    return modpower(a, phi(m) - 1, m);
+    return modPower(a, phi(m) - 1, m);
 }
 
 // Extended Euclidean Algorithm
@@ -106,7 +106,7 @@ void extgcd(ll a, ll b, ll &gcd, ll &x, ll &y)
 // Returns the modular inverse of a mod m
 // a * a^-1 ≡ 1 (mod m)
 // Precondition: a and m are relatively prime
-ll modinv3(ll a, ll m)
+ll modInv3(ll a, ll m)
 {
     ll x, y, gcd;
     extgcd(a, m, gcd, x, y);
