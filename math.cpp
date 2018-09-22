@@ -22,17 +22,21 @@ bool isPrime(ll n)
 vector<ll> getPrimeFactors(ll n)
 {
     vector<ll> primeFactors;
-    for(ll i = 2; i <= n; i++)
+    while(n % 2 == 0) 
+    { 
+        primeFactors.push_back(2); 
+        n = n / 2; 
+    } 
+    for(ll i = 3; i <= sqrt(n); i += 2)
     {
-        if(isPrime(i))
-        {
-            while(n % i == 0)
-            {  
-                primeFactors.push_back(i);
-                n = n / i;
-            }
+        while(n % i == 0)
+        {  
+            primeFactors.push_back(i);
+            n = n / i;
         }
     }    
+    if(n > 2)
+        primeFactors.push_back(n);
     return primeFactors;
 }
 
