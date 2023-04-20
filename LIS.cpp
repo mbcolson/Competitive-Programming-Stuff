@@ -5,6 +5,7 @@ using namespace std;
 // It runs in O(n log k) time where n is the length of the sequence and k is the length of the LIS.
 int findLISLen(vector<int> a) {
     vector<int> LIS;
+    
     for(int i = 0; i < a.size(); i++) {
         int pos = lower_bound(LIS.begin(), LIS.end(), a[i]) - LIS.begin();
         if(pos == LIS.size())
@@ -16,8 +17,7 @@ int findLISLen(vector<int> a) {
     return LIS.size();
 }
 
-int main() 
-{
+int main() {
     vector<int> a = {3, 5, 1, 2, 9, 5, 11, 3, 2, 4};   // LIS: {3, 5, 9, 11} or {1, 2, 3, 4}
     cout << findLISLen(a);                             // output: 4                            
     return 0;
