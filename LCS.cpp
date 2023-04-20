@@ -16,8 +16,7 @@ void printLCS(int a[], int b[], int n, int m) {
             dp[i][j] = 0;
     
     for(int i = 1; i <= n; i++) {
-        for(int j = 1; j <= m; j++)
-        {
+        for(int j = 1; j <= m; j++) {
             if(a[i - 1] == b[j - 1])   
                 dp[i][j] = dp[i - 1][j - 1] + 1;
             else
