@@ -15,6 +15,7 @@ void compute_prefix(string pat) {
     for(int q = 0; q < m; q++) {
         while(k >= 0 && pat[k] != pat[q])
             k = b[k];
+      
         k++;
         b[q + 1] = k;
     }    
