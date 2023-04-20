@@ -3,17 +3,16 @@ using namespace std;
 
 // This function returns the length of the longest increasing subsequence (LIS) found in sequence 'a'.
 // It runs in O(n log k) time where n is the length of the sequence and k is the length of the LIS.
-int findLISLen(vector<int> a)
-{
+int findLISLen(vector<int> a) {
     vector<int> LIS;
-    for(int i = 0; i < a.size(); i++)
-    {
+    for(int i = 0; i < a.size(); i++) {
         int pos = lower_bound(LIS.begin(), LIS.end(), a[i]) - LIS.begin();
         if(pos == LIS.size())
             LIS.push_back(a[i]);
         else
             LIS[pos] = a[i];
-    }    
+    }
+    
     return LIS.size();
 }
 
