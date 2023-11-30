@@ -1,9 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-/* Compute the Shortest Path From A Node To All 
-   Other Nodes in an Unweighted Graph Using 
-   Breadth-First Search */
+/* Compute the Shortest Path From A Node To All Other Nodes in an Unweighted 
+   and Undirected Graph Using Breadth-First Search */
 
 int main() {
     vector<vector<int>> edges;
