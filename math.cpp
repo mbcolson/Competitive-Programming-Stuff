@@ -31,6 +31,7 @@ bool isPrime(ll n) {
 }    
 
 // Returns a vector that contains the prime factors of n
+// Note: n must be > 0
 vector<ll> getPrimeFactors(ll n) {
     vector<ll> primeFactors;
     
