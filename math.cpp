@@ -52,6 +52,23 @@ vector<ll> getPrimeFactors(ll n) {
     return primeFactors;
 }
 
+// Returns a vector that contains the factors of x
+// Note: the factors are not sorted
+vector<ll> getFactors(ll x) {
+    vector<ll> factors;
+
+    for(ll i = 1; i * i <= x; i++) {
+        if ((x % i) == 0) {
+            if ((x / i) != i)
+                factors.push_back(x / i);
+            
+            factors.push_back(i);
+        }
+    }
+
+    return factors;
+}
+
 // Returns n to the power b mod m (n^b mod m)
 ll modPower(ll n, ll b, ll m) {
     ll res = 1;
